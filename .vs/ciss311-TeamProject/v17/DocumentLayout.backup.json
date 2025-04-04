@@ -5,6 +5,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|c:\\users\\brenden\\source\\repos\\ciss311-teamproject\\coursetracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|solutionrelative:coursetracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|c:\\users\\brenden\\source\\repos\\ciss311-teamproject\\enrollform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|solutionrelative:enrollform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|c:\\users\\brenden\\source\\repos\\ciss311-teamproject\\coursetracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|solutionrelative:coursetracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|c:\\users\\brenden\\source\\repos\\ciss311-teamproject\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|solutionrelative:course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\enrollform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|solutionrelative:enrollform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|c:\\users\\brenden\\source\\repos\\ciss311-teamproject\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|solutionrelative:enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|c:\\users\\brenden\\source\\repos\\ciss311-teamproject\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE24E46A-1F2A-46A1-AA45-3204E01A8416}|ciss311-TeamProject.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +38,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EnrollForm.cs",
+              "DocumentMoniker": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\EnrollForm.cs",
+              "RelativeDocumentMoniker": "EnrollForm.cs",
+              "ToolTip": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\EnrollForm.cs",
+              "RelativeToolTip": "EnrollForm.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAkwFgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T05:43:24.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CourseTracker.cs",
+              "DocumentMoniker": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\CourseTracker.cs",
+              "RelativeDocumentMoniker": "CourseTracker.cs",
+              "ToolTip": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\CourseTracker.cs",
+              "RelativeToolTip": "CourseTracker.cs",
+              "ViewState": "AgIAAAcAAAAAODMzMzMHwGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T05:30:19.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EnrollForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\EnrollForm.cs",
+              "RelativeDocumentMoniker": "EnrollForm.cs",
+              "ToolTip": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\EnrollForm.cs [Design]",
+              "RelativeToolTip": "EnrollForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T05:16:32.202Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Enrollment.cs",
+              "DocumentMoniker": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\Enrollment.cs",
+              "RelativeDocumentMoniker": "Enrollment.cs",
+              "ToolTip": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\Enrollment.cs",
+              "RelativeToolTip": "Enrollment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T05:00:47.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\Course.cs",
+              "RelativeDocumentMoniker": "Course.cs",
+              "ToolTip": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\Course.cs",
+              "RelativeToolTip": "Course.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T05:00:04.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\Student.cs",
+              "RelativeDocumentMoniker": "Student.cs",
+              "ToolTip": "C:\\Users\\brenden\\source\\repos\\ciss311-TeamProject\\Student.cs",
+              "RelativeToolTip": "Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T04:59:19.451Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
