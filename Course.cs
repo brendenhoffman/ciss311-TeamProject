@@ -21,5 +21,14 @@ namespace ciss311_TeamProject
         {
             return $"{CourseId}|{Title}";
         }
+        public string Instructor { get; } // or make it settable
+
+        public Course(string courseId, string title, string instructor)
+        {
+            CourseId = courseId;
+            Title = title;
+            Instructor = instructor;
+        }
+
     }
 }

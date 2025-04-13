@@ -108,6 +108,7 @@
             studentViewCoursesButton.TabIndex = 6;
             studentViewCoursesButton.Text = "&View my Courses";
             studentViewCoursesButton.UseVisualStyleBackColor = true;
+            studentViewCoursesButton.Click += studentViewCoursesButton_Click;
             // 
             // searchCoursesButton
             // 
@@ -126,6 +127,7 @@
             instructorViewCoursesButton.TabIndex = 8;
             instructorViewCoursesButton.Text = "V&iew my Students";
             instructorViewCoursesButton.UseVisualStyleBackColor = true;
+            instructorViewCoursesButton.Click += instructorViewCoursesButton_Click;
             // 
             // manageEnrollmentsButton
             // 

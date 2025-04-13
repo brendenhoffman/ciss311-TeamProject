@@ -98,6 +98,17 @@ namespace ciss311_TeamProject
                 sw.WriteLine(e.ToString()); // Format: StudentId|CourseId
             }
         }
+
+        private void studentViewCoursesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void instructorViewCoursesButton_Click(object sender, EventArgs e)
+        {
+            InstructorViewForm form = new InstructorViewForm(students, courses, enrollments);
+            form.ShowDialog();
+        }
     }
 }
 
