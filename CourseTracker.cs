@@ -98,6 +98,18 @@ namespace ciss311_TeamProject
                 sw.WriteLine(e.ToString()); // Format: StudentId|CourseId
             }
         }
+
+        private void addStudentButton_Click(object sender, EventArgs e)
+        {
+            AddStudent addStudentForm = new AddStudentForm(students, courses, enrollments);
+            addStudentForm.ShowDialog();
+        }
+
+        private void addCourseButton_Click(object sender, EventArgs e)
+        {
+            AddCourse addCourseForm = new AddCourseForm(students, courses, enrollments);
+            addCourseForm.ShowDialog();
+        }
     }
 }
 
