@@ -129,6 +129,12 @@ namespace ciss311_TeamProject
             InstructorViewForm form = new InstructorViewForm(students, courses, enrollments);
             form.ShowDialog();
         }
+
+        private void manageEnrollmentsButton_Click(object sender, EventArgs e)
+        {
+            ManageEnrollmentsForm form = new ManageEnrollmentsForm();
+            form.ShowDialog();
+        }
     }
 }
 
