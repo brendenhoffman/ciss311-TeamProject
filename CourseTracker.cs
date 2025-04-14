@@ -37,13 +37,21 @@ namespace ciss311_TeamProject
             string line;
             while ((line = sr.ReadLine()) != null)
             {
-                string[] parts = line.Split('|'); // | delimiter for clarity
-                if (parts.Length == 4)
+                string[] parts = line.Split('|'); // or ',' if you're using CSV-style instead
+
+                if (parts.Length >= 2)
                 {
-                    string id = parts[0];
-                    string name = parts[1];
-                    double gpa = double.Parse(parts[2]);
-                    double hours = double.Parse(parts[3]);
+                    string id = parts[0].Trim();
+                    string name = parts[1].Trim();
+
+                    double gpa = 0.0;
+                    double hours = 0.0;
+
+                    if (parts.Length >= 3)
+                        double.TryParse(parts[2], out gpa);
+                    if (parts.Length >= 4)
+                        double.TryParse(parts[3], out hours);
+
                     students[id] = new Student(id, name, gpa, hours);
                 }
             }
@@ -67,9 +75,9 @@ namespace ciss311_TeamProject
             while ((line = sr.ReadLine()) != null)
             {
                 string[] parts = line.Split('|');
-                if (parts.Length == 2)
+                if (parts.Length == 4)
                 {
-                    courses[parts[0]] = new Course(parts[0], parts[1]);
+                    courses[parts[0]] = new Course(parts[0], parts[1], parts[2], parts[3]);
                 }
             }
         }
@@ -101,14 +109,25 @@ namespace ciss311_TeamProject
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
-            AddStudent addStudentForm = new AddStudentForm(students, courses, enrollments);
+            AddStudent addStudentForm = new AddStudent(students);
             addStudentForm.ShowDialog();
         }
 
         private void addCourseButton_Click(object sender, EventArgs e)
         {
-            AddCourse addCourseForm = new AddCourseForm(students, courses, enrollments);
+            AddCourse addCourseForm = new AddCourse(students, courses, enrollments);
             addCourseForm.ShowDialog();
+        }
+
+        private void studentViewCoursesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void instructorViewCoursesButton_Click(object sender, EventArgs e)
+        {
+            InstructorViewForm form = new InstructorViewForm(students, courses, enrollments);
+            form.ShowDialog();
         }
     }
 }

@@ -4,19 +4,16 @@
     <Compile Update="AddCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AddCourseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="AddStudent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CourseTracker.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="EnrollForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InstructorViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

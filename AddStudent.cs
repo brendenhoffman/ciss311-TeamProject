@@ -12,34 +12,54 @@ namespace ciss311_TeamProject
 {
     public partial class AddStudent : Form
     {
-        public AddStudent()
+        private const string FilePath = "students.csv";
+
+        private Dictionary<string, Student> students;
+
+        public AddStudent(Dictionary<string, Student> students)
         {
             InitializeComponent();
+            this.students = students;
         }
+
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
-            string studentName = studentTextBox.Text;
+            string studentId = studentIdTextBox.Text.Trim();
+            string studentName = studentTextBox.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(studentName))
+            if (string.IsNullOrWhiteSpace(studentId) || string.IsNullOrWhiteSpace(studentName))
             {
-                MessageBox.Show("Please enter a valid student name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter both Student ID and Name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            // Check if the student ID already exists in the CSV
+            if (File.Exists(FilePath))
+            {
+                var existingIds = File.ReadLines(FilePath)
+                    .Select(line => line.Split('|')[0].Trim())
+                    .ToHashSet();
+
+                if (existingIds.Contains(studentId))
+                {
+                    MessageBox.Show("That Student ID already exists.", "Duplicate ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
 
             try
             {
-                // Specify the path to the CSV file
-                string filePath = "students.csv";
-
-                // Append the student name to the CSV file
-                using (StreamWriter writer = new StreamWriter(filePath, true))
+                using (StreamWriter writer = new StreamWriter(FilePath, true))
                 {
-                    writer.WriteLine(studentName);
+                    writer.WriteLine($"{studentId}|{studentName}");
                 }
 
-                MessageBox.Show("Student name added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                studentTextBox.Clear(); // Clear the textbox after successful addition
+                students[studentId] = new Student(studentId, studentName, 0.0, 0.0);
+
+                MessageBox.Show("Student added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                studentIdTextBox.Clear();
+                studentTextBox.Clear();
             }
             catch (Exception ex)
             {

@@ -32,13 +32,16 @@
             closeButton = new Button();
             studentTextBox = new TextBox();
             label1 = new Label();
+            label2 = new Label();
+            studentIdTextBox = new TextBox();
             SuspendLayout();
             // 
             // addStudentButton
             // 
-            addStudentButton.Location = new Point(167, 521);
+            addStudentButton.Location = new Point(90, 244);
+            addStudentButton.Margin = new Padding(2, 1, 2, 1);
             addStudentButton.Name = "addStudentButton";
-            addStudentButton.Size = new Size(218, 46);
+            addStudentButton.Size = new Size(117, 22);
             addStudentButton.TabIndex = 0;
             addStudentButton.Text = "Add Student";
             addStudentButton.UseVisualStyleBackColor = true;
@@ -46,9 +49,10 @@
             // 
             // closeButton
             // 
-            closeButton.Location = new Point(534, 521);
+            closeButton.Location = new Point(320, 244);
+            closeButton.Margin = new Padding(2, 1, 2, 1);
             closeButton.Name = "closeButton";
-            closeButton.Size = new Size(202, 46);
+            closeButton.Size = new Size(109, 22);
             closeButton.TabIndex = 1;
             closeButton.Text = "Close";
             closeButton.UseVisualStyleBackColor = true;
@@ -56,29 +60,50 @@
             // 
             // studentTextBox
             // 
-            studentTextBox.Location = new Point(357, 216);
+            studentTextBox.Location = new Point(192, 101);
+            studentTextBox.Margin = new Padding(2, 1, 2, 1);
             studentTextBox.Name = "studentTextBox";
-            studentTextBox.Size = new Size(436, 39);
+            studentTextBox.Size = new Size(237, 23);
             studentTextBox.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(79, 216);
+            label1.Location = new Point(62, 104);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(223, 32);
+            label1.Size = new Size(113, 15);
             label1.TabIndex = 3;
-            label1.Text = "New Student Name";
+            label1.Text = "New Student Name:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(110, 67);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Student ID:";
+            // 
+            // studentIdTextBox
+            // 
+            studentIdTextBox.Location = new Point(192, 64);
+            studentIdTextBox.Name = "studentIdTextBox";
+            studentIdTextBox.Size = new Size(237, 23);
+            studentIdTextBox.TabIndex = 5;
             // 
             // AddStudent
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1189, 710);
+            ClientSize = new Size(640, 333);
+            Controls.Add(studentIdTextBox);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(studentTextBox);
             Controls.Add(closeButton);
             Controls.Add(addStudentButton);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "AddStudent";
             Text = "AddStudent";
             ResumeLayout(false);
@@ -91,5 +116,7 @@
         private Button closeButton;
         private TextBox studentTextBox;
         private Label label1;
+        private Label label2;
+        private TextBox studentIdTextBox;
     }
 }

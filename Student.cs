@@ -25,5 +25,7 @@ namespace ciss311_TeamProject
         {
             return $"{StudentId}|{Name}|{Gpa}|{Hours}";
         }
+
+        public string DisplayInfo => $"{StudentId} - {Name}";
     }
 }
