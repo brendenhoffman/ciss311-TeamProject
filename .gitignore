@@ -1,5 +1,4 @@
 .vs/
 obj/
-*.exe
-*.dll
-*.runtimeconfig.json
+bin/
+!bin/**/*.csv
