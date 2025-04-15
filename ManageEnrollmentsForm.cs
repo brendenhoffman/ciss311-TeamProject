@@ -1,8 +1,6 @@
-
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,56 +8,24 @@ namespace ciss311_TeamProject
 {
     public partial class ManageEnrollmentsForm : Form
     {
-        private Dictionary<string, string> students = new();
-        private Dictionary<string, (string Title, string Instructor)> courses = new();
-        private List<Enrollment> enrollments = new();
+        private Dictionary<string, Student> students;
+        private Dictionary<string, Course> courses;
+        private List<Enrollment> enrollments;
 
-        public ManageEnrollmentsForm()
+        public ManageEnrollmentsForm(
+            Dictionary<string, Student> students,
+            Dictionary<string, Course> courses,
+            List<Enrollment> enrollments)
         {
             InitializeComponent();
-            LoadData();
-            PopulateStudentDropdown();
+            this.students = students;
+            this.courses = courses;
+            this.enrollments = enrollments;
+
+            this.Load += ManageEnrollmentsForm_Load;
         }
 
-        private void LoadData()
-        {
-            // Load students
-            if (File.Exists("students.csv"))
-            {
-                foreach (var line in File.ReadAllLines("students.csv"))
-                {
-                    var parts = line.Split('|');
-                    if (parts.Length >= 2)
-                        students[parts[0]] = parts[1];
-                }
-            }
-
-            // Load courses
-            if (File.Exists("courses.csv"))
-            {
-                foreach (var line in File.ReadAllLines("courses.csv"))
-                {
-                    var parts = line.Split('|');
-                    if (parts.Length >= 3)
-                        courses[parts[0]] = (parts[1], parts[2]);
-                }
-            }
-
-            // Load enrollments
-            if (File.Exists("enrollments.csv"))
-            {
-                foreach (var line in File.ReadAllLines("enrollments.csv"))
-                {
-                    var parts = line.Split('|');
-                    if (parts.Length >= 2)
-                    {
-                        enrollments.Add(new Enrollment(parts[0], parts[1]));
-                    }
-                }
-            }
-        }
-
-        private void PopulateStudentDropdown()
+        private void ManageEnrollmentsForm_Load(object sender, EventArgs e)
         {
             var dt = new DataTable();
             dt.Columns.Add("StudentId");
@@ -69,7 +35,7 @@ namespace ciss311_TeamProject
             {
                 var row = dt.NewRow();
                 row["StudentId"] = kvp.Key;
-                row["FullName"] = kvp.Value;
+                row["FullName"] = kvp.Value.Name;
                 dt.Rows.Add(row);
             }
 
@@ -90,16 +56,14 @@ namespace ciss311_TeamProject
 
             foreach (var enrollment in enrollments.Where(e => e.StudentId == studentId))
             {
-                var courseId = enrollment.CourseId;
+                string courseId = enrollment.CourseId;
+                if (courses.TryGetValue(courseId, out var course))
                 {
-                    if (courses.TryGetValue(courseId, out var info))
-                    {
-                        listBoxCourses.Items.Add($"{courseId} - {info.Title} ({info.Instructor})");
-                    }
-                    else
-                    {
-                        listBoxCourses.Items.Add($"{courseId} - (Unknown)");
-                    }
+                    listBoxCourses.Items.Add($"{courseId} - {course.Title} ({course.Instructor})");
+                }
+                else
+                {
+                    listBoxCourses.Items.Add($"{courseId} - (Unknown)");
                 }
             }
         }
@@ -109,11 +73,11 @@ namespace ciss311_TeamProject
             if (listBoxCourses.SelectedItem == null) return;
 
             string courseId = listBoxCourses.SelectedItem.ToString().Split('-')[0].Trim();
-            if (courses.TryGetValue(courseId, out var info))
+            if (courses.TryGetValue(courseId, out var course))
             {
-                textBoxCourse.Text = courseId;
-                textBoxTitle.Text = info.Title;
-                textBoxInstructor.Text = info.Instructor;
+                textBoxCourse.Text = course.CourseId;
+                textBoxTitle.Text = course.Title;
+                textBoxInstructor.Text = course.Instructor;
             }
             else
             {
@@ -172,10 +136,6 @@ namespace ciss311_TeamProject
                 lines.Add($"{enrollment.StudentId}|{enrollment.CourseId}");
             }
             File.WriteAllLines("enrollments.csv", lines);
-        }
-
-        private void ManageEnrollmentsForm_Load(object sender, EventArgs e)
-        {
         }
     }
 }
