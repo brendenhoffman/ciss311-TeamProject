@@ -89,7 +89,7 @@ namespace ciss311_TeamProject
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            string studentId = comboBoxStudents.SelectedValue.ToString();
+            /*string studentId = comboBoxStudents.SelectedValue.ToString();
             if (!enrollments.Any(e => e.StudentId == studentId)) return;
 
             string oldCourseId = null;
@@ -105,7 +105,7 @@ namespace ciss311_TeamProject
             enrollments.Add(new Enrollment(studentId, newCourseId));
             SaveEnrollments();
             MessageBox.Show("Enrollment updated.");
-            comboBoxStudents_SelectedIndexChanged(null, null);
+            comboBoxStudents_SelectedIndexChanged(null, null);*/
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -136,6 +136,11 @@ namespace ciss311_TeamProject
                 lines.Add($"{enrollment.StudentId}|{enrollment.CourseId}");
             }
             File.WriteAllLines("enrollments.csv", lines);
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

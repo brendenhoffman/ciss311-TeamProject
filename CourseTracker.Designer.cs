@@ -44,10 +44,9 @@
             // 
             // enrollButton
             // 
-            enrollButton.Location = new Point(93, 263);
-            enrollButton.Margin = new Padding(3, 4, 3, 4);
+            enrollButton.Location = new Point(81, 197);
             enrollButton.Name = "enrollButton";
-            enrollButton.Size = new Size(154, 31);
+            enrollButton.Size = new Size(135, 23);
             enrollButton.TabIndex = 0;
             enrollButton.Text = "&Enroll in a course";
             enrollButton.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@
             // 
             // closeButton
             // 
-            closeButton.Location = new Point(719, 491);
-            closeButton.Margin = new Padding(3, 4, 3, 4);
+            closeButton.Location = new Point(629, 368);
             closeButton.Name = "closeButton";
-            closeButton.Size = new Size(136, 31);
+            closeButton.Size = new Size(119, 23);
             closeButton.TabIndex = 1;
             closeButton.Text = "Save and &Close";
             closeButton.UseVisualStyleBackColor = true;
@@ -68,9 +66,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(247, 95);
+            label1.Location = new Point(216, 71);
             label1.Name = "label1";
-            label1.Size = new Size(450, 54);
+            label1.Size = new Size(363, 45);
             label1.TabIndex = 2;
             label1.Text = "College Course Tracker";
             // 
@@ -78,9 +76,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(93, 207);
+            label2.Location = new Point(81, 155);
             label2.Name = "label2";
-            label2.Size = new Size(64, 20);
+            label2.Size = new Size(52, 15);
             label2.TabIndex = 3;
             label2.Text = "Student";
             // 
@@ -88,9 +86,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(378, 207);
+            label3.Location = new Point(331, 155);
             label3.Name = "label3";
-            label3.Size = new Size(79, 20);
+            label3.Size = new Size(63, 15);
             label3.TabIndex = 4;
             label3.Text = "Instructor";
             // 
@@ -98,18 +96,17 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(671, 207);
+            label4.Location = new Point(587, 155);
             label4.Name = "label4";
-            label4.Size = new Size(56, 20);
+            label4.Size = new Size(43, 15);
             label4.TabIndex = 5;
             label4.Text = "Admin";
             // 
             // studentViewCoursesButton
             // 
-            studentViewCoursesButton.Location = new Point(93, 324);
-            studentViewCoursesButton.Margin = new Padding(3, 4, 3, 4);
+            studentViewCoursesButton.Location = new Point(81, 243);
             studentViewCoursesButton.Name = "studentViewCoursesButton";
-            studentViewCoursesButton.Size = new Size(154, 31);
+            studentViewCoursesButton.Size = new Size(135, 23);
             studentViewCoursesButton.TabIndex = 6;
             studentViewCoursesButton.Text = "&View my Courses";
             studentViewCoursesButton.UseVisualStyleBackColor = true;
@@ -117,20 +114,19 @@
             // 
             // searchCoursesButton
             // 
-            searchCoursesButton.Location = new Point(93, 387);
-            searchCoursesButton.Margin = new Padding(3, 4, 3, 4);
+            searchCoursesButton.Location = new Point(81, 290);
             searchCoursesButton.Name = "searchCoursesButton";
-            searchCoursesButton.Size = new Size(154, 31);
+            searchCoursesButton.Size = new Size(135, 23);
             searchCoursesButton.TabIndex = 7;
-            searchCoursesButton.Text = "&Search for Courses";
+            searchCoursesButton.Text = "View Class LIst";
             searchCoursesButton.UseVisualStyleBackColor = true;
+            searchCoursesButton.Click += searchCoursesButton_Click;
             // 
             // instructorViewCoursesButton
             // 
-            instructorViewCoursesButton.Location = new Point(378, 263);
-            instructorViewCoursesButton.Margin = new Padding(3, 4, 3, 4);
+            instructorViewCoursesButton.Location = new Point(331, 197);
             instructorViewCoursesButton.Name = "instructorViewCoursesButton";
-            instructorViewCoursesButton.Size = new Size(154, 31);
+            instructorViewCoursesButton.Size = new Size(135, 23);
             instructorViewCoursesButton.TabIndex = 8;
             instructorViewCoursesButton.Text = "V&iew my Students";
             instructorViewCoursesButton.UseVisualStyleBackColor = true;
@@ -138,10 +134,9 @@
             // 
             // manageEnrollmentsButton
             // 
-            manageEnrollmentsButton.Location = new Point(671, 263);
-            manageEnrollmentsButton.Margin = new Padding(3, 4, 3, 4);
+            manageEnrollmentsButton.Location = new Point(587, 197);
             manageEnrollmentsButton.Name = "manageEnrollmentsButton";
-            manageEnrollmentsButton.Size = new Size(154, 31);
+            manageEnrollmentsButton.Size = new Size(135, 23);
             manageEnrollmentsButton.TabIndex = 9;
             manageEnrollmentsButton.Text = "&Manage Enrollments";
             manageEnrollmentsButton.UseVisualStyleBackColor = true;
@@ -149,10 +144,10 @@
             // 
             // addStudentButton
             // 
-            addStudentButton.Location = new Point(673, 324);
+            addStudentButton.Location = new Point(589, 243);
             addStudentButton.Margin = new Padding(2, 1, 2, 1);
             addStudentButton.Name = "addStudentButton";
-            addStudentButton.Size = new Size(152, 31);
+            addStudentButton.Size = new Size(133, 23);
             addStudentButton.TabIndex = 10;
             addStudentButton.Text = "Add a Student";
             addStudentButton.UseVisualStyleBackColor = true;
@@ -160,10 +155,10 @@
             // 
             // addCourseButton
             // 
-            addCourseButton.Location = new Point(673, 388);
+            addCourseButton.Location = new Point(589, 291);
             addCourseButton.Margin = new Padding(2, 1, 2, 1);
             addCourseButton.Name = "addCourseButton";
-            addCourseButton.Size = new Size(152, 29);
+            addCourseButton.Size = new Size(133, 22);
             addCourseButton.TabIndex = 11;
             addCourseButton.Text = "Add a Course";
             addCourseButton.UseVisualStyleBackColor = true;
@@ -171,9 +166,9 @@
             // 
             // CourseTracker
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(addCourseButton);
             Controls.Add(addStudentButton);
             Controls.Add(manageEnrollmentsButton);
@@ -186,7 +181,6 @@
             Controls.Add(label1);
             Controls.Add(closeButton);
             Controls.Add(enrollButton);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CourseTracker";
             Text = "Course Tracker";
             Load += CourseTracker_Load;

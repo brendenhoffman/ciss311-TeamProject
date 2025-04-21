@@ -132,7 +132,13 @@ namespace ciss311_TeamProject
 
         private void manageEnrollmentsButton_Click(object sender, EventArgs e)
         {
-            ManageEnrollmentsForm form = new ManageEnrollmentsForm();
+            ManageEnrollmentsForm form = new ManageEnrollmentsForm(students, courses, enrollments);
+            form.ShowDialog();
+        }
+
+        private void searchCoursesButton_Click(object sender, EventArgs e)
+        {
+            StudentViewForm form = new StudentViewForm(students, courses, enrollments);
             form.ShowDialog();
         }
     }
