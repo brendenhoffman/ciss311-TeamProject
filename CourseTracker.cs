@@ -1,10 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
 namespace ciss311_TeamProject
 {
     public partial class CourseTracker : Form
     {
         private Dictionary<string, Student> students = new();
         private Dictionary<string, Course> courses = new();
-        private List<Enrollment> enrollments = new(); public CourseTracker()
+        private List<Enrollment> enrollments = new();
+
+        public CourseTracker()
         {
             InitializeComponent();
         }
@@ -24,8 +33,12 @@ namespace ciss311_TeamProject
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            savingLabel.Visible = true;
+            savingLabel.Refresh();
             SaveStudents("students.csv");
+            SaveCourses("courses.csv");
             SaveEnrollments("enrollments.csv");
+            SaveToDatabase(); // new
             Close();
         }
 
@@ -37,7 +50,7 @@ namespace ciss311_TeamProject
             string line;
             while ((line = sr.ReadLine()) != null)
             {
-                string[] parts = line.Split('|'); // or ',' if you're using CSV-style instead
+                string[] parts = line.Split('|');
 
                 if (parts.Length >= 2)
                 {
@@ -62,7 +75,7 @@ namespace ciss311_TeamProject
             using StreamWriter sw = new StreamWriter(path);
             foreach (Student s in students.Values)
             {
-                sw.WriteLine(s.ToString()); // Format: ID|Name|Gpa|Hours
+                sw.WriteLine(s.ToString());
             }
         }
 
@@ -79,6 +92,15 @@ namespace ciss311_TeamProject
                 {
                     courses[parts[0]] = new Course(parts[0], parts[1], parts[2], parts[3]);
                 }
+            }
+        }
+
+        private void SaveCourses(string path)
+        {
+            using StreamWriter sw = new StreamWriter(path);
+            foreach (Course c in courses.Values)
+            {
+                sw.WriteLine(c.ToString());
             }
         }
 
@@ -103,7 +125,65 @@ namespace ciss311_TeamProject
             using StreamWriter sw = new StreamWriter(path);
             foreach (Enrollment e in enrollments)
             {
-                sw.WriteLine(e.ToString()); // Format: StudentId|CourseId
+                sw.WriteLine(e.ToString());
+            }
+        }
+
+        private void SaveToDatabase()
+        {
+            try
+            {
+                using SqlConnection conn = new SqlConnection(Properties.Settings.Default.connString);
+                conn.Open();
+
+                // Wipe existing data
+                new SqlCommand("DELETE FROM Enrollment", conn).ExecuteNonQuery();
+                new SqlCommand("DELETE FROM Course", conn).ExecuteNonQuery();
+                new SqlCommand("DELETE FROM Student", conn).ExecuteNonQuery();
+
+                // Save students
+                foreach (var s in students.Values)
+                {
+                    using SqlCommand cmd = new SqlCommand(
+                        "INSERT INTO Student (StudentId, Name, Gpa, Hours) VALUES (@id, @name, @gpa, @hours)", conn);
+
+                    cmd.Parameters.AddWithValue("@id", s.StudentId);
+                    cmd.Parameters.AddWithValue("@name", s.Name);
+                    cmd.Parameters.AddWithValue("@gpa", s.Gpa);
+                    cmd.Parameters.AddWithValue("@hours", s.Hours);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Save courses
+                foreach (var c in courses.Values)
+                {
+                    using SqlCommand cmd = new SqlCommand(
+                        "INSERT INTO Course (CourseId, Title, Instructor, Semester) VALUES (@id, @title, @instructor, @semester)", conn);
+
+                    cmd.Parameters.AddWithValue("@id", c.CourseId);
+                    cmd.Parameters.AddWithValue("@title", c.Title);
+                    cmd.Parameters.AddWithValue("@instructor", c.Instructor);
+                    cmd.Parameters.AddWithValue("@semester", c.Semester);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Save enrollments
+                foreach (var e in enrollments)
+                {
+                    using SqlCommand cmd = new SqlCommand(
+                        "INSERT INTO Enrollment (StudentId, CourseId) VALUES (@studentId, @courseId)", conn);
+
+                    cmd.Parameters.AddWithValue("@studentId", e.StudentId);
+                    cmd.Parameters.AddWithValue("@courseId", e.CourseId);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch
+            {
+                // Fail quietly
             }
         }
 
@@ -121,7 +201,8 @@ namespace ciss311_TeamProject
 
         private void studentViewCoursesButton_Click(object sender, EventArgs e)
         {
-
+            ViewCoursesForm viewCoursesForm = new ViewCoursesForm(courses);
+            viewCoursesForm.ShowDialog();
         }
 
         private void instructorViewCoursesButton_Click(object sender, EventArgs e)
@@ -141,6 +222,11 @@ namespace ciss311_TeamProject
             StudentViewForm form = new StudentViewForm(students, courses, enrollments);
             form.ShowDialog();
         }
+
+        private void viewStudentsButton_Click(object sender, EventArgs e)
+        {
+            ViewStudentsForm form = new ViewStudentsForm(students);
+            form.ShowDialog();
+        }
     }
 }
-

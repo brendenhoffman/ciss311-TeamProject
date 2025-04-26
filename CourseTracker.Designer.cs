@@ -40,6 +40,8 @@
             manageEnrollmentsButton = new Button();
             addStudentButton = new Button();
             addCourseButton = new Button();
+            viewStudentsButton = new Button();
+            savingLabel = new Label();
             SuspendLayout();
             // 
             // enrollButton
@@ -108,7 +110,7 @@
             studentViewCoursesButton.Name = "studentViewCoursesButton";
             studentViewCoursesButton.Size = new Size(135, 23);
             studentViewCoursesButton.TabIndex = 6;
-            studentViewCoursesButton.Text = "&View my Courses";
+            studentViewCoursesButton.Text = "&View Courses";
             studentViewCoursesButton.UseVisualStyleBackColor = true;
             studentViewCoursesButton.Click += studentViewCoursesButton_Click;
             // 
@@ -164,11 +166,34 @@
             addCourseButton.UseVisualStyleBackColor = true;
             addCourseButton.Click += addCourseButton_Click;
             // 
+            // viewStudentsButton
+            // 
+            viewStudentsButton.Location = new Point(331, 243);
+            viewStudentsButton.Name = "viewStudentsButton";
+            viewStudentsButton.Size = new Size(135, 23);
+            viewStudentsButton.TabIndex = 12;
+            viewStudentsButton.Text = "View Students";
+            viewStudentsButton.UseVisualStyleBackColor = true;
+            viewStudentsButton.Click += viewStudentsButton_Click;
+            // 
+            // savingLabel
+            // 
+            savingLabel.AutoSize = true;
+            savingLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            savingLabel.Location = new Point(488, 369);
+            savingLabel.Name = "savingLabel";
+            savingLabel.Size = new Size(74, 21);
+            savingLabel.TabIndex = 13;
+            savingLabel.Text = "Saving...";
+            savingLabel.Visible = false;
+            // 
             // CourseTracker
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(savingLabel);
+            Controls.Add(viewStudentsButton);
             Controls.Add(addCourseButton);
             Controls.Add(addStudentButton);
             Controls.Add(manageEnrollmentsButton);
@@ -202,5 +227,7 @@
         private Button manageEnrollmentsButton;
         private Button addStudentButton;
         private Button addCourseButton;
+        private Button viewStudentsButton;
+        private Label savingLabel;
     }
 }

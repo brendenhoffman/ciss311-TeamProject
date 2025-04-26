@@ -22,5 +22,11 @@
     <Compile Update="StudentViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ViewCoursesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ViewStudentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
