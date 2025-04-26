@@ -121,7 +121,8 @@ namespace ciss311_TeamProject
 
         private void studentViewCoursesButton_Click(object sender, EventArgs e)
         {
-
+            ViewCoursesForm viewCoursesForm = new ViewCoursesForm(courses);
+            viewCoursesForm.ShowDialog();
         }
 
         private void instructorViewCoursesButton_Click(object sender, EventArgs e)
@@ -132,7 +133,7 @@ namespace ciss311_TeamProject
 
         private void manageEnrollmentsButton_Click(object sender, EventArgs e)
         {
-            ManageEnrollmentsForm form = new ManageEnrollmentsForm();
+            ManageEnrollmentsForm form = new ManageEnrollmentsForm(students, courses, enrollments);
             form.ShowDialog();
         }
     }
