@@ -1,4 +1,8 @@
 namespace ciss311_TeamProject
+    //TEAM 1
+    //BRENDEN, MERRICK, SARAH, JEREMY
+    //CISS311
+    //4/26/25
 {
     public partial class CourseTracker : Form
     {
